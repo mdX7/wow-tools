@@ -30,22 +30,22 @@ enum UpdateFieldSizes : std::uint32_t
 
 namespace Offsets
 {
-    std::uintptr_t const ObjectFields = 0xE33118;
-    std::uintptr_t const ItemFields = 0xE32D40;
-    std::uintptr_t const ItemDynamicFields = 0xE32958;
-    std::uintptr_t const ContainerFields = 0xE32240;
-    std::uintptr_t const UnitFields = 0xE30E38;
-    std::uintptr_t const UnitDynamicFields = 0xE30434;
-    std::uintptr_t const PlayerFields = 0xE26548;
-    std::uintptr_t const PlayerDynamicFields = 0xE1BC40;
-    std::uintptr_t const GameObjectFields = 0xE1BAF8;
-    std::uintptr_t const GameObjectDynamicFields = 0xE1B960;
-    std::uintptr_t const DynamicObjectFields = 0xE1B8F8;
-    std::uintptr_t const CorpseFields = 0xE1B678;
-    std::uintptr_t const AreaTriggerFields = 0xE1B388;
-    std::uintptr_t const SceneObjectFields = 0xE1B1D0;
-    std::uintptr_t const ConversationFields = 0xE1B0DC;
-    std::uintptr_t const ConversationDynamicFields = 0xE1B030;
+    std::uintptr_t const ObjectFields = 0xD29C28;
+    std::uintptr_t const ItemFields = 0xD29850;
+    std::uintptr_t const ItemDynamicFields = 0xD29468;
+    std::uintptr_t const ContainerFields = 0xD28D50;
+    std::uintptr_t const UnitFields = 0xD27948;
+    std::uintptr_t const UnitDynamicFields = 0xD26F44;
+    std::uintptr_t const PlayerFields = 0xD1D058;
+    std::uintptr_t const PlayerDynamicFields = 0xD12750;
+    std::uintptr_t const GameObjectFields = 0xD12608;
+    std::uintptr_t const GameObjectDynamicFields = 0xD12470;
+    std::uintptr_t const DynamicObjectFields = 0xD12408;
+    std::uintptr_t const CorpseFields = 0xD12188;
+    std::uintptr_t const AreaTriggerFields = 0xD11E98;
+    std::uintptr_t const SceneObjectFields = 0xD11CE0;
+    std::uintptr_t const ConversationFields = 0xD11BEC;
+    std::uintptr_t const ConversationDynamicFields = 0xD11B40;
 }
 
 int main()
@@ -54,8 +54,8 @@ int main()
     if (!dll)
         return 1;
 
-    ExportFn export = (ExportFn)GetProcAddress(dll, "Extract");
-    if (!export)
+    ExportFn extract = (ExportFn)GetProcAddress(dll, "Extract");
+    if (!extract)
     {
         FreeLibrary(dll);
         return 1;
@@ -96,6 +96,6 @@ int main()
     offsets.ConversationCount = CONVERSATION_COUNT;
     offsets.ConversationDynamicCount = CONVERSATION_DYNAMIC_COUNT;
 
-    export(&offsets);
+    extract(&offsets);
     FreeLibrary(dll);
 }

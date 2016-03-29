@@ -32,7 +32,7 @@ void DumpEnum(Enum const& enumData, std::string const& fileNameBase)
 
 void DumpUIErrors(std::shared_ptr<Process> wow)
 {
-    static std::uintptr_t const UIErrorsOffset = 0xCBC230;
+    static std::uintptr_t const UIErrorsOffset = 0xBB7BE8;
     static std::size_t const UIErrorsSize = 946;
 
     Enum uiErrors;
@@ -50,8 +50,8 @@ void DumpUIErrors(std::shared_ptr<Process> wow)
 
 void DumpFrameXML_Events(std::shared_ptr<Process> wow)
 {
-    static std::uintptr_t const FrameXML_EventsOffset = 0xE730D8;
-    static std::size_t const FrameXML_EventsSize = 1058;
+    static std::uintptr_t const FrameXML_EventsOffset = 0xD69C70;
+    std::size_t const FrameXML_EventsSize = 1046;
 
     Enum frameXML;
     frameXML.SetName("FrameXML_Events");
@@ -66,12 +66,28 @@ void DumpFrameXML_Events(std::shared_ptr<Process> wow)
     DumpEnum(frameXML, "FrameXML_Events");
 }
 
+void DumpResponseCodes(std::shared_ptr<Process> wow)
+{
+    static std::uintptr_t const ResponseCodesOffset = 0xA28FA0;
+    std::size_t const ResponseCodesSize = 88;
+
+    Enum responseCodes;
+    responseCodes.SetPaddingAfterValueName(55);
+    responseCodes.SetName("ResponseCodes");
+    std::vector<char const*> codes = wow->ReadArray<char const*>(ResponseCodesOffset, ResponseCodesSize);
+    for (std::size_t i = 0; i < codes.size(); ++i)
+        responseCodes.AddMember(Enum::Member(i, wow->Read<std::string>(codes[i]), ""));
+
+    DumpEnum(responseCodes, "ResponseCodes");
+}
+
 int main()
 {
-    std::shared_ptr<Process> wow = ProcessTools::Open(_T("Wow.exe"), 20444, true);
+    std::shared_ptr<Process> wow = ProcessTools::Open(_T("Wow.exe"), 21355, true);
     if (!wow)
         return 1;
 
     DumpUIErrors(wow);
     DumpFrameXML_Events(wow);
+    DumpResponseCodes(wow);
 }
