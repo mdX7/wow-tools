@@ -41,7 +41,7 @@
         public static readonly UpdateField versatilityBonus = new UpdateField(typeof(float), UpdateFieldFlag.None);
         public static readonly UpdateField pvpPowerDamage = new UpdateField(typeof(float), UpdateFieldFlag.None);
         public static readonly UpdateField pvpPowerHealing = new UpdateField(typeof(float), UpdateFieldFlag.None);
-        public static readonly UpdateField exploredZones = new UpdateField(typeof(ulong[]), UpdateFieldFlag.None, 192);
+        public static readonly UpdateField exploredZones = new UpdateField(typeof(ulong[]), UpdateFieldFlag.None, 160);
         public static readonly UpdateField restInfo = new UpdateField(typeof(JamMirrorRestInfo_C[]), UpdateFieldFlag.None, 2);
         public static readonly UpdateField modDamageDonePos = new UpdateField(typeof(int[]), UpdateFieldFlag.None, 7);
         public static readonly UpdateField modDamageDoneNeg = new UpdateField(typeof(int[]), UpdateFieldFlag.None, 7);
@@ -71,7 +71,6 @@
         public static readonly UpdateField lifetimeHonorableKills = new UpdateField(typeof(uint), UpdateFieldFlag.None);
         public static readonly UpdateField watchedFactionIndex = new UpdateField(typeof(int), UpdateFieldFlag.None);
         public static readonly UpdateField combatRatings = new UpdateField(typeof(int[]), UpdateFieldFlag.None, 32);
-        public static readonly UpdateField pvpInfo = new UpdateField(typeof(JamMirrorPVPInfo_C[]), UpdateFieldFlag.None, 6);
         public static readonly UpdateField maxLevel = new UpdateField(typeof(int), UpdateFieldFlag.None);
         public static readonly UpdateField scalingPlayerLevelDelta = new UpdateField(typeof(int), UpdateFieldFlag.None);
         public static readonly UpdateField maxCreatureScalingLevel = new UpdateField(typeof(int), UpdateFieldFlag.None);
@@ -109,18 +108,16 @@
         public static readonly UpdateField toys = new UpdateField(typeof(DynamicUpdateField<int>), UpdateFieldFlag.None);
         public static readonly UpdateField toyFlags = new UpdateField(typeof(DynamicUpdateField<uint>), UpdateFieldFlag.None);
         public static readonly UpdateField transmog = new UpdateField(typeof(DynamicUpdateField<uint>), UpdateFieldFlag.None);
-        public static readonly UpdateField conditionalTransmog = new UpdateField(typeof(DynamicUpdateField<int>), UpdateFieldFlag.None);
+        //public static readonly UpdateField conditionalTransmog = new UpdateField(typeof(DynamicUpdateField<int>), UpdateFieldFlag.None);
         public static readonly UpdateField selfResSpells = new UpdateField(typeof(DynamicUpdateField<int>), UpdateFieldFlag.None);
         public static readonly UpdateField characterRestrictions = new UpdateField(typeof(DynamicUpdateField<JamMirrorCharacterRestriction_C>), UpdateFieldFlag.None);
         public static readonly UpdateField spellPctModByLabel = new UpdateField(typeof(DynamicUpdateField<JamMirrorSpellPctModByLabel_C>), UpdateFieldFlag.None);
         public static readonly UpdateField spellFlatModByLabel = new UpdateField(typeof(DynamicUpdateField<JamMirrorSpellFlatModByLabel_C>), UpdateFieldFlag.None);
         public static readonly UpdateField research = new UpdateField(typeof(DynamicUpdateField<JamMirrorResearch_C>[]), UpdateFieldFlag.None, 1);
-        public static readonly UpdateField replayedQuests = new UpdateField(typeof(DynamicUpdateField<JamMirrorReplayedQuest_C>), UpdateFieldFlag.None);
-        public static readonly UpdateField disabledSpells = new UpdateField(typeof(DynamicUpdateField<int>), UpdateFieldFlag.None);
+        public static readonly UpdateField pvpInfo = new UpdateField(typeof(JamMirrorPVPInfo_C[]), UpdateFieldFlag.None, 6);
         public static readonly UpdateField backpackAutoSortDisabled = new UpdateField(typeof(bool), UpdateFieldFlag.None);
         public static readonly UpdateField bankAutoSortDisabled = new UpdateField(typeof(bool), UpdateFieldFlag.None);
         public static readonly UpdateField sortBagsRightToLeft = new UpdateField(typeof(bool), UpdateFieldFlag.None);
         public static readonly UpdateField insertItemsLeftToRight = new UpdateField(typeof(bool), UpdateFieldFlag.None);
-        public static readonly UpdateField questSession = new UpdateField(typeof(BlzOptionalField<JamMirrorQuestSession_C>), UpdateFieldFlag.None);
     }
 }

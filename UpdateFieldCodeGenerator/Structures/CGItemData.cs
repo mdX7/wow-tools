@@ -18,6 +18,8 @@ namespace UpdateFieldCodeGenerator.Structures
         public static readonly UpdateField m_spellCharges = new UpdateField(typeof(int[]), UpdateFieldFlag.Owner, 5);
         public static readonly UpdateField m_dynamicFlags = new UpdateField(typeof(uint), UpdateFieldFlag.None);
         public static readonly UpdateField m_enchantment = new UpdateField(typeof(JamMirrorItemEnchantment_C[]), UpdateFieldFlag.None, 13);
+        public static readonly UpdateField m_propertySeed = new UpdateField(typeof(int), UpdateFieldFlag.None);
+        public static readonly UpdateField m_randomPropertiesId = new UpdateField(typeof(int), UpdateFieldFlag.None);
         public static readonly UpdateField m_durability = new UpdateField(typeof(uint), UpdateFieldFlag.Owner);
         public static readonly UpdateField m_maxDurability = new UpdateField(typeof(uint), UpdateFieldFlag.Owner);
         public static readonly UpdateField m_createPlayedTime = new UpdateField(typeof(uint), UpdateFieldFlag.None);
